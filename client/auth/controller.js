@@ -17,11 +17,11 @@ module.exports = {
 		if ( OAuthToken.getToken() ) {
 			page( '/' );
 		} else {
-			page( '/start' );
-/*			ReactDom.render(
+			//page( '/start' );
+			ReactDom.render(
 				React.createElement( LoginComponent, {} ),
 				document.getElementById( 'primary' )
-			);*/
+			);
 		}
 	},
 
