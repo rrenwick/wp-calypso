@@ -48,10 +48,10 @@ const flows = {
 	},
 
 	main: {
-		steps: [ 'themes', 'domains', 'plans', 'user' ],
+		steps: [ 'survey', 'themes', 'domains', 'plans', 'user' ],
 		destination: getCheckoutDestination,
 		description: 'The current best performing flow in AB tests',
-		lastModified: '2015-09-03'
+		lastModified: '2016-01-25'
 	},
 
 	/* On deck flows*/
