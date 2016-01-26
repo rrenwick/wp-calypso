@@ -64,13 +64,6 @@ const flows = {
 		lastModified: '2015-09-22'
 	},
 
-	verticals: {
-		steps: [ 'survey', 'themes', 'domains', 'plans', 'survey-user' ],
-		destination: getCheckoutDestination,
-		description: 'Categorizing blog signups for Verticals Survey',
-		lastModified: '2015-12-10'
-	},
-
 	'delta-discover': {
 		steps: [ 'user' ],
 		destination: '/',

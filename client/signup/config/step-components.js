@@ -18,7 +18,6 @@ module.exports = {
 	plans: PlansStepComponent,
 	domains: DomainsStepComponent,
 	survey: SurveyStepComponent,
-	'survey-user': UserSignupComponent,
 	'design-type': DesignTypeComponent,
 	'jetpack-user': UserSignupComponent
 };
