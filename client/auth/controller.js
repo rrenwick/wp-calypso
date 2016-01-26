@@ -31,7 +31,7 @@ module.exports = {
 			next();
 			return;
 		}
-		if ( OAuthToken.getToken() === false && ! startsWith( context.path, '/login' ) && ! startsWith( context.path, '/oauth' && ! startsWith( context.path, '/start' ) ) ) {
+		if ( OAuthToken.getToken() === false && ! startsWith( context.path, '/login' ) && ! startsWith( context.path, '/oauth' ) ) {
 			page( '/login' );
 		} else {
 			next();

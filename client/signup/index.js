@@ -11,7 +11,6 @@ var controller = require( './controller' ),
 	config = require( 'config' );
 
 module.exports = function() {
-	console.log('here');
 	if ( config.isEnabled( 'phone_signup' ) ) {
 		page( '/phone/:lang?', controller.phoneSignup );
 	}
