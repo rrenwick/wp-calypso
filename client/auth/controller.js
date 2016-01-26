@@ -13,7 +13,7 @@ import LoginComponent from './login';
 import * as OAuthToken from 'lib/oauth-token';
 
 module.exports = {
-	login: function( context ) {
+	login: function() {
 		if ( OAuthToken.getToken() ) {
 			page( '/' );
 		} else {
