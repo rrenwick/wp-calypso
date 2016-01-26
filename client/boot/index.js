@@ -186,7 +186,7 @@ function boot() {
 		analytics.setSuperProps( superProps );
 
 		if ( config.isEnabled( 'oauth' ) ) {
-			LoggedOutLayout = require( 'layout/logged-out-oauth' );
+			LoggedOutLayout = require( 'layout/logged-out' );
 		} else if ( startsWith( window.location.pathname, '/design' ) ) {
 			LoggedOutLayout = require( 'layout/logged-out-design' );
 		} else {
@@ -344,7 +344,7 @@ function boot() {
 	}
 
 	if ( config.isEnabled( 'desktop' ) ) {
-		require( 'lib/desktop' ).init();
+		//require( 'lib/desktop' ).init();
 	}
 
 	detectHistoryNavigation.start();
