@@ -51,7 +51,7 @@ const flows = {
 		steps: [ 'themes', 'domains', 'plans', 'user' ],
 		destination: getCheckoutDestination,
 		description: 'The current best performing flow in AB tests',
-		lastModified: '2016-09-03'
+		lastModified: '2015-09-03'
 	},
 
 	/* WP.com homepage flows */
