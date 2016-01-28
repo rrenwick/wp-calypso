@@ -41,7 +41,7 @@ module.exports = {
 	survey: {
 		stepName: 'survey',
 		props: {
-			surveySiteType: ( '/start/survey-blog' === current ) ? 'blog' : 'site'
+			surveySiteType: ( '/start/blog' === current ) ? 'blog' : 'site'
 		},
 		providesDependencies: [ 'surveySiteType', 'surveyQuestion' ]
 	},

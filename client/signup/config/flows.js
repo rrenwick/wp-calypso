@@ -48,10 +48,25 @@ const flows = {
 	},
 
 	main: {
-		steps: [ 'survey', 'themes', 'domains', 'plans', 'user' ],
+		steps: [ 'themes', 'domains', 'plans', 'user' ],
 		destination: getCheckoutDestination,
 		description: 'The current best performing flow in AB tests',
-		lastModified: '2016-01-25'
+		lastModified: '2016-09-03'
+	},
+
+	/* WP.com homepage flows */
+	website: {
+		steps: [ 'survey', 'themes', 'domains', 'plans', 'user' ],
+		destination: getCheckoutDestination,
+		description: 'This flow is used for the users who clicked "Create Website" on the two-button homepage.',
+		lastModified: '2016-01-28'
+	},
+
+	blog: {
+		steps: [ 'survey', 'themes', 'domains', 'plans', 'user' ],
+		destination: getCheckoutDestination,
+		description: 'This flow is used for the users who clicked "Create Blog" on the two-button homepage.',
+		lastModified: '2016-01-28'
 	},
 
 	/* On deck flows*/
