@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { compose } from 'lodash';
+import compose from 'lodash/function/compose';
 
 /**
  * Internal dependencies
@@ -44,7 +44,7 @@ export default function( reduxStore ) {
 	// update the wpcom API interceptor accordingly.
 	reduxStore.subscribe( () => {
 		const state = reduxStore.getState();
-		
+
 		if ( wpcom.setSupportUserToken( getSupportUser( state ), getSupportToken( state ) ) ) {
 			onTokenChange();
 		}
