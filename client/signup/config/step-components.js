@@ -8,6 +8,7 @@ var UserSignupComponent = require( 'signup/steps/user' ),
 	DomainsStepComponent = require( 'signup/steps/domains' ),
 	DesignTypeComponent = require( 'signup/steps/design-type' ),
 	SurveyStepComponent = require( 'signup/steps/survey' ),
+	JetpackAuthorizeSite = require( 'signup/steps/jetpack-authorize-site' ),
 	config = require( 'config' );
 
 module.exports = {
@@ -20,5 +21,6 @@ module.exports = {
 	survey: SurveyStepComponent,
 	'survey-user': UserSignupComponent,
 	'design-type': DesignTypeComponent,
-	'jetpack-user': UserSignupComponent
+	'jetpack-user': UserSignupComponent,
+	'authorize-site': JetpackAuthorizeSite
 };
