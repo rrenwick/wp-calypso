@@ -115,7 +115,7 @@ module.exports = React.createClass( {
 	},
 
 	getPlanDiscountMessage: function() {
-		if ( this.isPlaceholder() ) {
+		if ( this.isPlaceholder() || this.props.hideDiscountMessage ) {
 			return;
 		}
 
