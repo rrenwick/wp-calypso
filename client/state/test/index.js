@@ -5,11 +5,9 @@ require( 'lib/react-test-env-setup' )();
 import { expect } from 'chai';
 import sinon from 'sinon';
 
+const createReduxStore = require( 'state' ).createReduxStore;
+
 describe( 'state', () => {
-	var createReduxStore;
-	before( () => {
-		createReduxStore = require( 'state' ).createReduxStore;
-	} );
 	describe( 'createReduxStore', () => {
 		it( 'can be called without specifying initialState', () => {
 			const reduxStoreNoArgs = createReduxStore().getState();

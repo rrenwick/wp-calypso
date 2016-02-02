@@ -31,8 +31,7 @@ export function items( state = {}, action ) {
 		case SERIALIZE:
 			// scrub _events, _maxListeners, and other misc functions
 			const sites = Object.keys( state ).map( ( siteID ) => {
-				let plainJSObject = Object.assign( {}, state[ siteID ] );
-				plainJSObject = pick( plainJSObject, ( value ) => ! isFunction( value ) );
+				let plainJSObject = pick( state[ siteID ], ( value ) => ! isFunction( value ) );
 				plainJSObject = omit( plainJSObject, [ '_events', '_maxListeners'] );
 				return plainJSObject;
 			} );

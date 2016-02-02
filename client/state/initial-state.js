@@ -19,8 +19,7 @@ const debug = debugModule( 'calypso:state' );
 export const localforageConfig = {
 	name: 'calypso',
 	storeName: 'calypso_store',
-	description: 'Calypso Storage',
-	driver: localforage.INDEXDB
+	description: 'Calypso Storage'
 };
 
 function serialize( state ) {
