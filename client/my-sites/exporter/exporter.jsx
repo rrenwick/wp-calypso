@@ -24,13 +24,15 @@ export default React.createClass( {
 	render: function() {
 		const { setPostType, startExport } = this.props;
 		const { postType, shouldShowProgress } = this.props;
+		const siteId = this.props.site.ID;
+		const onClickExportAll = () => startExport( siteId );
 
 		const exportButton = (
 			<SpinnerButton
 				className="exporter__export-button"
 				loading={ shouldShowProgress }
 				isPrimary={ true }
-				onClick={ startExport }
+				onClick={ onClickExportAll }
 				text={ this.translate( 'Export All' ) }
 				loadingText={ this.translate( 'Exporting…' ) } />
 		);

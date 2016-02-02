@@ -18,14 +18,14 @@ function mapStateToProps( state, ownProps ) {
 		site: ownProps.site,
 		postType: uiState.postType,
 		advancedSettings: uiState.advancedSettings,
-		shouldShowProgress: shouldShowProgress( state )
+		shouldShowProgress: shouldShowProgress( state, ownProps.site.ID )
 	};
 }
 
 function mapDispatchToProps( dispatch ) {
 	return {
 		setPostType: compose( dispatch, setPostType ),
-		startExport: () => startExport()( dispatch )
+		startExport: compose( dispatch, startExport )
 	};
 }
 
