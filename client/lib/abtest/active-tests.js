@@ -69,7 +69,7 @@ module.exports = {
 			noTeaser: 34
 		},
 		defaultVariation: 'mostPopular'
-	},	
+	},
 	checkoutMasterbar: {
 		datestamp: '20160126',
 		variations: {
@@ -101,5 +101,14 @@ module.exports = {
 			description: 50
 		},
 		defaultVariation: 'description'
-	}
+	},
+	headstart: {
+		datestamp: '20160202',
+		variations: {
+			original: 20,
+			notTested: 20,
+			headstart: 60
+		},
+		defaultVariation: 'original'
+	},
 };
