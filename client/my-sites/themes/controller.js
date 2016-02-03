@@ -12,10 +12,12 @@ var ReactDom = require( 'react-dom' ),
 var SingleSiteComponent = require( 'my-sites/themes/single-site' ),
 	MultiSiteComponent = require( 'my-sites/themes/multi-site' ),
 	LoggedOutComponent = require( 'my-sites/themes/logged-out' ),
+	ThemeSheetComponent = require( 'my-sites/themes/sheet' ).ThemeSheet,
 	analytics = require( 'analytics' ),
 	route = require( 'lib/route' ),
 	i18n = require( 'lib/mixins/i18n' ),
 	trackScrollPage = require( 'lib/track-scroll-page' ),
+	setSection = require( 'state/ui/actions' ).setSection,
 	getCurrentUser = require( 'state/current-user/selectors' ).getCurrentUser,
 	buildTitle = require( 'lib/screen-title/utils' );
 
@@ -70,7 +72,25 @@ var controller = {
 			),
 			document.getElementById( 'primary' )
 		);
+	},
+
+	details: function( context ) {
+		context.store.dispatch( setSection( 'design', { hasSidebar: false, fullScreen: true } ) );
+		const user = getCurrentUser( context.store.getState() );
+		const Head = user
+			? require( 'layout/head' )
+			: require( 'my-sites/themes/head' );
+
+		ReactDom.render(
+			React.createElement( ReduxProvider, { store: context.store },
+				React.createElement( Head, { title: 'A theme' },
+					React.createElement( ThemeSheetComponent, { themeSlug: context.params.slug } )
+				)
+			),
+			document.getElementById( 'primary' )
+		);
 	}
+
 };
 
 module.exports = controller;
