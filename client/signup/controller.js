@@ -153,6 +153,10 @@ export default {
 	},
 
 	jetpackConnect( context ) {
+		context.store.dispatch( setSection( 'jetpackConnect', {
+			hasSidebar: false
+		} ) );
+
 		ReactDom.render(
 			React.createElement( JetpackConnect, {
 				path: context.path,

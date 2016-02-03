@@ -151,6 +151,10 @@ const flows = {
 		destination: getCheckoutDestination,
 		description: 'Signup flow for free trials',
 		lastModified: '2015-12-18'
+	},
+
+	'jetpack-connect': {
+		steps: [ 'url-entry', 'plans' ]
 	}
 };
 
