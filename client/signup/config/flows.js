@@ -2,6 +2,7 @@
  * External dependencies
  */
 var assign = require( 'lodash/object/assign' ),
+	page = require( 'page' ),
 	reject = require( 'lodash/collection/reject' );
 
 /**
@@ -158,16 +159,16 @@ function removeUserStepFromFlow( flow ) {
 	} );
 }
 
-function getCurrentFlowName( flowName ) {
-	// Headstart test - Only consider users from the default flow
-	if ( ! flowName && 'headstart' === abtest( 'headstart' ) ) {
+function getCurrentFlowName( currentUrl ) {
+	// Headstart test - Only consider users from the homepage
+	if ( '/start/en?ref=homepage' === currentUrl && 'headstart' === abtest( 'headstart' ) ) {
 		return 'headstart';
 	}
 	return 'main';
 }
 
 module.exports = {
-	currentFlowName: getCurrentFlowName,
+	currentFlowName: getCurrentFlowName( page.current ),
 
 	defaultFlowName: 'main',
 
