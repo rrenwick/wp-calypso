@@ -17,7 +17,11 @@ var CategorySelector = require( 'my-sites/category-selector' ),
 	siteUtils = require( 'lib/site/utils' ),
 	stats = require( 'lib/posts/stats' );
 
-module.exports = React.createClass( {
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setCategories } from 'state/ui/editor/post/actions';
+
+const EditorCategories = React.createClass( {
 	displayName: 'EditorCategories',
 
 	propTypes: {
@@ -81,6 +85,7 @@ module.exports = React.createClass( {
 		postActions.edit( {
 			categories: selected
 		} );
+		this.props.setCategories( selected );
 	},
 
 	onSearch: function( searchTerm ) {
@@ -116,3 +121,8 @@ module.exports = React.createClass( {
 		);
 	}
 } );
+
+export default connect(
+	null,
+	dispatch => bindActionCreators( { setCategories }, dispatch )
+)( EditorCategories );

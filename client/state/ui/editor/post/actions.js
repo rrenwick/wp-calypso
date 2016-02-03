@@ -31,5 +31,10 @@ export function changeAuthor( newAuthor ) {
 	return { type: 'TODO' };
 }
 
+export function setCategories( newCategories ) {
+	debug( 'setCategories', newCategories );
+	return { type: 'TODO' };
+}
+
 export const EDITING_MODE_EXISTING = 'EXISTING';
 export const EDITING_MODE_NEW = 'NEW';
