@@ -872,11 +872,20 @@ MenuData.prototype.fetchDefaultMenu = function() {
 	this.data.defaultMenu = false;
 	this.fetchingDefaultMenu = true;
 
-	wpcom.site( requestedSiteID ).postsList( params, function( error, data ) {
+	wpcom
+	.site( requestedSiteID )
+	.postsList( params, function( error, data ) {
 		this.fetchingDefaultMenu = false;
 		if ( error ) {
-			this.emit( 'error', i18n.translate( 'There was a problem loading the default menu.' ) );
+			this.emit( 'error',
+				i18n.translate( 'There was a problem loading the default menu.' )
+			);
 			debug( 'Error', error, data );
+			return;
+		}
+
+		if ( data.__syncResponse ) {
+			debug( 'ignoring second response here ...' );
 			return;
 		}
 
