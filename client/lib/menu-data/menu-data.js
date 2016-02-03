@@ -117,10 +117,12 @@ MenuData.prototype.get = function() {
 MenuData.prototype.fetch = function() {
 	var requestedSiteID = this.siteID;
 
-	wpcom.undocumented().menus( this.siteID, function( error, data ) {
-		if ( error ) {
-			this.emit( 'error', i18n.translate( 'There was a problem fetching your menu data.' ) );
-			debug( 'Error', error, data );
+	wpcom
+	.undocumented()
+	.menus( this.siteID, function( err, data ) {
+		if ( err ) {
+			this.emit( 'err', i18n.translate( 'There was a problem fetching your menu data.' ) );
+			debug( 'err', err, data );
 		}
 
 		// Bail if site has changed in the meantime
