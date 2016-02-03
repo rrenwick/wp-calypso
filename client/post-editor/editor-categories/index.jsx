@@ -82,6 +82,7 @@ const EditorCategories = React.createClass( {
 		}
 
 		debug( 'setting selected to', selected );
+		// TODO: REDUX - remove flux actions when whole post-editor is reduxified
 		postActions.edit( {
 			categories: selected
 		} );

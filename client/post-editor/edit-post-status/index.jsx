@@ -60,6 +60,7 @@ var EditPostStatus = React.createClass( {
 		stats.recordStat( stickyStat );
 		stats.recordEvent( 'Changed Sticky Setting', stickyEventLabel );
 
+		// TODO: REDUX - remove flux actions when whole post-editor is reduxified
 		actions.edit( { sticky: ! this.props.post.sticky } );
 		this.props.toggleStickyStatus( this.props.post.sticky );
 	},
@@ -70,6 +71,7 @@ var EditPostStatus = React.createClass( {
 		stats.recordStat( 'status_changed' );
 		stats.recordEvent( 'Changed Pending Status', pending ? 'Marked Draft' : 'Marked Pending' );
 
+		// TODO: REDUX - remove flux actions when whole post-editor is reduxified
 		actions.edit( { status: pending ? 'draft' : 'pending' } );
 		this.props.togglePendingStatus( this.props.post.status );
 	},

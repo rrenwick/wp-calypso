@@ -59,6 +59,7 @@ var EditorAuthor = React.createClass( {
 	onSelect: function( author ) {
 		stats.recordStat( 'advanced_author_changed' );
 		stats.recordEvent( 'Changed Author' );
+		// TODO: REDUX - remove flux actions when whole post-editor is reduxified
 		PostActions.edit( { author: author } );
 		this.props.changeAuthor( author );
 	},
