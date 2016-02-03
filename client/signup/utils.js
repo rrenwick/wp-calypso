@@ -23,7 +23,7 @@ function getFlowName( parameters ) {
 	}
 
 	if ( typeof currentFlowName === 'function' ) {
-		currentFlowName = currentFlowName();
+		currentFlowName = currentFlowName( parameters.flowName );
 	}
 
 	return currentFlowName;

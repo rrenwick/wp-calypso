@@ -58,6 +58,12 @@ describe( 'utils.getFlowName', function() {
 		assert.equal( utils.getFlowName( {} ), 'called' );
 	} );
 
+	it( 'should call the currentFlowName with the requested flow if it is a function and the flow is not valid', function() {
+		flows.currentFlowName = sinon.stub().returns( 'called' );
+		utils.getFlowName( { flowName: 'invalid' } );
+		assert( flows.currentFlowName.calledWith( 'invalid' ) );
+	} );
+
 	it( 'should not call currentFlowName if it is a function and the flow is present', function() {
 		flows.currentFlowName = sinon.stub().returns( 'called' );
 		assert.equal( utils.getFlowName( { flowName: 'other' } ), 'other' );
