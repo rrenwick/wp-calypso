@@ -159,16 +159,16 @@ function removeUserStepFromFlow( flow ) {
 	} );
 }
 
-function getCurrentFlowName( currentUrl ) {
-	// Headstart test - Only consider users from the general /start path.
-	if ( '/start' === currentUrl && 'headstart' === abtest( 'headstart' ) ) {
+function getCurrentFlowName( flowName ) {
+	// Headstart test - Only consider users from the default flow
+	if ( ! flowName && 'headstart' === abtest( 'headstart' ) ) {
 		return 'headstart';
 	}
 	return 'main';
 }
 
 module.exports = {
-	currentFlowName: getCurrentFlowName( page.current ),
+	currentFlowName: getCurrentFlowName,
 
 	defaultFlowName: 'main',
 
