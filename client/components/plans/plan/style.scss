@@ -106,7 +106,6 @@
 
 @mixin plans-in-three-columns() {
 	.plan {
-		width: 32%;
 		margin: 0 2% 15px 0;
 
 		&:last-child {
@@ -138,11 +137,6 @@
 			flex-direction: row;
 			flex-wrap: nowrap;
 			justify-content: center;
-	}
-
-
-	.plan-list .jetpack_premium, .plan-list .jetpack_business {
-		width: 49%;
 	}
 }
 
