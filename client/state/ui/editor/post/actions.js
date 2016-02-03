@@ -41,6 +41,10 @@ export function trashPost( post, callback ) {
 	return { type: 'TODO' };
 }
 
+export function setDiscussionSettings( newSettings ) {
+	debug( 'setDiscussionSettings', newSettings );
+	return { type: 'TODO' };
+}
 
 export const EDITING_MODE_EXISTING = 'EXISTING';
 export const EDITING_MODE_NEW = 'NEW';
