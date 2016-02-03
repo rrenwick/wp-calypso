@@ -26,5 +26,10 @@ export function togglePendingStatus( currentStatus ) {
 	return { type: 'TODO' };
 }
 
+export function changeAuthor( newAuthor ) {
+	debug( 'changeAuthor', newAuthor );
+	return { type: 'TODO' };
+}
+
 export const EDITING_MODE_EXISTING = 'EXISTING';
 export const EDITING_MODE_NEW = 'NEW';

@@ -15,6 +15,10 @@ var Gravatar = require( 'components/gravatar' ),
 	config = require( 'config' ),
 	stats = require( 'lib/posts/stats' );
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { changeAuthor } from 'state/ui/editor/post/actions';
+
 var EditorAuthor = React.createClass( {
 
 	render: function() {
@@ -56,6 +60,7 @@ var EditorAuthor = React.createClass( {
 		stats.recordStat( 'advanced_author_changed' );
 		stats.recordEvent( 'Changed Author' );
 		PostActions.edit( { author: author } );
+		this.props.changeAuthor( author );
 	},
 
 	userCanAssignAuthor: function() {
@@ -73,4 +78,7 @@ var EditorAuthor = React.createClass( {
 
 } );
 
-module.exports = EditorAuthor;
+export default connect(
+	null,
+	dispatch => bindActionCreators( { changeAuthor }, dispatch )
+)( EditorAuthor );
