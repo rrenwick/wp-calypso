@@ -16,5 +16,15 @@ export function startEditingExisting( site, postID ) {
 	return { type: 'TODO' };
 }
 
+export function toggleStickyStatus( currentStatus ) {
+	debug( 'toggleStickyStatus', currentStatus );
+	return { type: 'TODO' };
+}
+
+export function togglePendingStatus( currentStatus ) {
+	debug( 'togglePendingStatus', currentStatus );
+	return { type: 'TODO' };
+}
+
 export const EDITING_MODE_EXISTING = 'EXISTING';
 export const EDITING_MODE_NEW = 'NEW';

@@ -3,6 +3,8 @@
  */
 var React = require( 'react' ),
 	noop = require( 'lodash/utility/noop' );
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 /**
  * Internal dependencies
@@ -20,6 +22,11 @@ var actions = require( 'lib/posts/actions' ),
 	postScheduleUtils = require( 'components/post-schedule/utils' ),
 	siteUtils = require( 'lib/site/utils' ),
 	stats = require( 'lib/posts/stats' );
+
+import {
+	toggleStickyStatus,
+	togglePendingStatus
+} from 'state/ui/editor/post/actions'
 
 var EditPostStatus = React.createClass( {
 	propTypes: {
@@ -54,6 +61,7 @@ var EditPostStatus = React.createClass( {
 		stats.recordEvent( 'Changed Sticky Setting', stickyEventLabel );
 
 		actions.edit( { sticky: ! this.props.post.sticky } );
+		this.props.toggleStickyStatus( this.props.post.sticky );
 	},
 
 	togglePendingStatus: function() {
@@ -63,6 +71,7 @@ var EditPostStatus = React.createClass( {
 		stats.recordEvent( 'Changed Pending Status', pending ? 'Marked Draft' : 'Marked Pending' );
 
 		actions.edit( { status: pending ? 'draft' : 'pending' } );
+		this.props.togglePendingStatus( this.props.post.status );
 	},
 
 	togglePostSchedulePopover: function() {
@@ -233,4 +242,12 @@ var EditPostStatus = React.createClass( {
 	}
 } );
 
-module.exports = EditPostStatus;
+
+
+export default connect(
+	null,
+	dispatch => bindActionCreators( {
+		toggleStickyStatus,
+		togglePendingStatus
+	}, dispatch )
+)( EditPostStatus );
