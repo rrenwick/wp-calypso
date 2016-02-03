@@ -11,7 +11,7 @@ import { getThemeDetails } from '../selectors';
 
 describe( 'selectors', () => {
 	describe( '#getThemeDetails()', () => {
-		it( 'should return the object for the selected site', () => {
+		it( 'should return details for a theme given its ID', () => {
 			const details = getThemeDetails( {
 				themes: {
 					themeDetails: Map( {
