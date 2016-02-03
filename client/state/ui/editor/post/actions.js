@@ -36,5 +36,11 @@ export function setCategories( newCategories ) {
 	return { type: 'TODO' };
 }
 
+export function trashPost( post, callback ) {
+	debug( 'trashPost', post, callback );
+	return { type: 'TODO' };
+}
+
+
 export const EDITING_MODE_EXISTING = 'EXISTING';
 export const EDITING_MODE_NEW = 'NEW';

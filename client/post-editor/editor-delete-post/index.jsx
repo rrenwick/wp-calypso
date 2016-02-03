@@ -13,7 +13,11 @@ import utils from 'lib/posts/utils';
 import Gridicon from 'components/gridicon';
 import Tooltip from 'components/tooltip';
 
-export default React.createClass( {
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { trashPost } from 'state/ui/editor/post/actions';
+
+const EditorDeletePost = React.createClass( {
 	displayName: 'EditorDeletePost',
 
 	propTypes: {
@@ -41,6 +45,7 @@ export default React.createClass( {
 		}.bind( this );
 
 		if ( utils.userCan( 'delete_post', this.props.post ) ) {
+			this.props.trashPost( this.props.post, handleTrashingPost );
 			actions.trash( this.props.post, handleTrashingPost );
 		}
 	},
@@ -95,3 +100,8 @@ export default React.createClass( {
 		);
 	}
 } );
+
+export default connect(
+	null,
+	dispatch => bindActionCreators( { trashPost }, dispatch )
+)( EditorDeletePost );
