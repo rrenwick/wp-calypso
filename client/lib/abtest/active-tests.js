@@ -106,8 +106,8 @@ module.exports = {
 		datestamp: '20160203',
 		variations: {
 			original: 20,
-			notTested: 20,
-			headstart: 60
+			notTested: 60,
+			headstart: 20
 		},
 		defaultVariation: 'original'
 	},
