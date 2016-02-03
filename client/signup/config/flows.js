@@ -2,7 +2,6 @@
  * External dependencies
  */
 var assign = require( 'lodash/object/assign' ),
-	page = require( 'page' ),
 	reject = require( 'lodash/collection/reject' );
 
 /**
