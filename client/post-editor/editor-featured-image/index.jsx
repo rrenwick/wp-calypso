@@ -1,3 +1,10 @@
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {
+	setFeaturedImage,
+	removeFeaturedImage
+} from 'state/ui/editor/post/actions';
+
 /**
  * External dependencies
  */
@@ -50,6 +57,9 @@ var EditorFeaturedImage = React.createClass( {
 			return;
 		}
 
+		this.props.setFeaturedImage( items[0].ID );
+
+		// TODO: REDUX - remove flux actions when whole post-editor is reduxified
 		PostActions.edit( {
 			featured_image: items[0].ID
 		} );
@@ -59,6 +69,9 @@ var EditorFeaturedImage = React.createClass( {
 	},
 
 	removeImage: function() {
+		this.props.removeFeaturedImage();
+
+		// TODO: REDUX - remove flux actions when whole post-editor is reduxified
 		PostActions.edit( {
 			featured_image: ''
 		} );
@@ -133,4 +146,7 @@ var EditorFeaturedImage = React.createClass( {
 	}
 } );
 
-module.exports = EditorFeaturedImage;
+export default connect(
+	null,
+	dispatch => bindActionCreators( { setFeaturedImage, removeFeaturedImage }, dispatch )
+)( EditorFeaturedImage );

@@ -51,5 +51,15 @@ export function setExcerpt( newExcerpt ) {
 	return { type: 'TODO' };
 }
 
+export function setFeaturedImage( newImage ) {
+	debug( 'setFeaturedImage', newImage );
+	return { type: 'TODO' };
+}
+
+export function removeFeaturedImage() {
+	debug( 'removeFeaturedImage' );
+	return { type: 'TODO' };
+}
+
 export const EDITING_MODE_EXISTING = 'EXISTING';
 export const EDITING_MODE_NEW = 'NEW';
