@@ -37,6 +37,10 @@ var Accordion = require( 'components/accordion' ),
 	userSettings = require( 'lib/user-settings' ),
 	AppPromo = require( 'components/app-promo' );
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setExcerpt } from 'state/ui/editor/post/actions';
+
 var EditorDrawer = React.createClass( {
 
 	propTypes: {
@@ -55,7 +59,9 @@ var EditorDrawer = React.createClass( {
 	},
 
 	onExcerptChange: function( event ) {
+		// TODO: REDUX - remove flux actions when whole post-editor is reduxified
 		actions.edit( { excerpt: event.target.value } );
+		this.props.setExcerpt( event.target.value );
 	},
 
 	currentPostTypeSupports: function( feature ) {
@@ -309,4 +315,7 @@ var EditorDrawer = React.createClass( {
 	}
 } );
 
-module.exports = EditorDrawer;
+export default connect(
+	null,
+	dispatch => bindActionCreators( { setExcerpt }, dispatch )
+)( EditorDrawer );

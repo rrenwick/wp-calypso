@@ -46,5 +46,10 @@ export function setDiscussionSettings( newSettings ) {
 	return { type: 'TODO' };
 }
 
+export function setExcerpt( newExcerpt ) {
+	debug( 'setExcerpt', newExcerpt );
+	return { type: 'TODO' };
+}
+
 export const EDITING_MODE_EXISTING = 'EXISTING';
 export const EDITING_MODE_NEW = 'NEW';
